@@ -18,7 +18,7 @@ function PageHeader({ title, subtitle }) {
 
 function NumberCard({ n, title, desc, emoji }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur p-6">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur p-6">
       <div className="flex items-center gap-3 mb-3">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-emerald-500 text-white flex items-center justify-center font-semibold">
           {n}
@@ -35,7 +35,7 @@ function NumberCard({ n, title, desc, emoji }) {
 
 function WayCard({ emoji, title, points }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur p-6">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur p-6">
       <div className="flex items-center gap-2 text-white text-lg font-semibold mb-3">
         <span className="text-xl" aria-hidden>{emoji}</span>
         <span>{title}</span>
@@ -180,13 +180,14 @@ export default function How() {
           </div>
         </section>
 
-        {/* Triple hands image */}
+        {/* Triple hands image above gradient, natural colors */}
         <section className="relative py-8">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 flex justify-center">
             <img
               src="https://oriiion.ai/img/oriiion-iphone-triple-hands.png"
               alt="Oriion iPhone in hands"
-              className="w-full max-w-5xl select-none mix-blend-multiply"
+              className="w-full max-w-5xl select-none"
+              style={{ mixBlendMode: 'normal', filter: 'saturate(1) contrast(1) brightness(1)' }}
             />
           </div>
         </section>

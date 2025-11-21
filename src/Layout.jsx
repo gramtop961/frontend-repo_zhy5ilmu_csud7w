@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
@@ -81,14 +81,16 @@ const translations = {
 export default function Layout() {
   const [lang, setLang] = useState('ru')
   const t = useMemo(() => translations[lang], [lang])
+  const { pathname } = useLocation()
+  const isAuth = pathname.startsWith('/signin') || pathname.startsWith('/signup')
 
   return (
     <div className="min-h-screen relative">
-      <Navbar lang={lang} setLang={setLang} t={t} />
+      {!isAuth && <Navbar lang={lang} setLang={setLang} t={t} />}
       <main>
-        <Outlet context={{ lang, t }} />
+        <Outlet context={{ lang, t, setLang }} />
       </main>
-      <Footer t={t} />
+      {!isAuth && <Footer t={t} />}
     </div>
   )
 }
