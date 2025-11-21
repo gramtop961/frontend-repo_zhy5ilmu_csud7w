@@ -4,7 +4,7 @@ export default function HowItWorks({ t }) {
   const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`
 
   return (
-    <section id="how" className="relative py-16 sm:py-24 bg-gradient-to-b from-transparent to-slate-50 dark:to-slate-900/30">
+    <section id="how" className="relative py-16 sm:py-24 bg-gradient-to-b from-transparent to-slate-50/60 dark:to-slate-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white mb-8">{t.how.title}</h2>
         <div className="grid sm:grid-cols-3 gap-6">
@@ -18,9 +18,9 @@ export default function HowItWorks({ t }) {
           ))}
         </div>
 
-        {/* Video preview embedded like in-app player */}
-        <div className="mt-10 w-full">
-          <div className="rounded-2xl overflow-hidden border border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-slate-900/60 shadow-sm">
+        {/* Smaller centered video */}
+        <div className="mt-10 w-full flex justify-center">
+          <div className="w-full max-w-3xl rounded-2xl overflow-hidden border border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-slate-900/60 shadow-sm">
             <div className="relative w-full pb-[56.25%]">{/* 16:9 aspect ratio */}
               <iframe
                 className="absolute inset-0 w-full h-full"
@@ -34,8 +34,8 @@ export default function HowItWorks({ t }) {
           </div>
         </div>
 
-        {/* Optional helper button below (kept for CTA consistency) */}
-        <div className="mt-6">
+        {/* Helper button below */}
+        <div className="mt-6 flex justify-center">
           <button
             type="button"
             onClick={() => {

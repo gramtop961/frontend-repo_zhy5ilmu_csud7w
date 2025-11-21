@@ -7,23 +7,23 @@ function Flag({ code, className = '' }) {
 }
 
 function Brand() {
-  // "oriiion" with bouncing dots above each i like waves
+  // "Oriiion" (capital O) with bouncing dots above each i like waves
   return (
     <div className="relative flex items-end gap-1 select-none">
-      <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white lowercase">or</span>
+      <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">Or</span>
       <span className="relative inline-block">
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-fuchsia-500 animate-dot [animation-delay:0ms]" />
-        <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white lowercase">i</span>
+        <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">i</span>
       </span>
       <span className="relative inline-block">
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-emerald-500 animate-dot [animation-delay:200ms]" />
-        <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white lowercase">i</span>
+        <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">i</span>
       </span>
       <span className="relative inline-block">
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-indigo-500 animate-dot [animation-delay:400ms]" />
-        <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white lowercase">i</span>
+        <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">i</span>
       </span>
-      <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white lowercase">on</span>
+      <span className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white">on</span>
     </div>
   )
 }
@@ -33,7 +33,7 @@ export default function Navbar({ lang, setLang, t }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="pt-6 sm:pt-8">
+    <div className="pt-6 sm:pt-8 relative z-30">
       <header className="mx-auto max-w-6xl px-3 sm:px-6">
         <div className="rounded-full bg-white/70 dark:bg-slate-900/70 backdrop-blur border border-white/30 dark:border-white/10 shadow-xl shadow-fuchsia-500/5 px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -49,7 +49,7 @@ export default function Navbar({ lang, setLang, t }) {
           <div className="relative">
             <button
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex items-center gap-2 rounded-full bg-slate-100/80 dark:bg-white/10 border border-white/40 dark:border-white/10 px-3 py-1.5 text-sm text-slate-700 dark:text-white hover:bg-white/80 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-100/80 dark:bg:white/10 border border-white/40 dark:border-white/10 px-3 py-1.5 text-sm text-slate-700 dark:text-white hover:bg-white/80 transition-colors"
               aria-haspopup="listbox"
               aria-expanded={open}
             >
@@ -60,7 +60,7 @@ export default function Navbar({ lang, setLang, t }) {
               </svg>
             </button>
             {open && (
-              <ul className="absolute right-0 mt-2 w-40 rounded-xl overflow-hidden border border-white/40 dark:border-white/10 bg-white/90 dark:bg-slate-900/90 backdrop-blur shadow-lg" role="listbox">
+              <ul className="absolute right-0 mt-2 w-40 rounded-xl overflow-hidden border border-white/40 dark:border-white/10 bg-white/90 dark:bg-slate-900/90 backdrop-blur shadow-lg z-50" role="listbox">
                 <li>
                   <button onClick={() => { setLang('en'); setOpen(false) }} className="w-full flex items-center gap-2 px-3 py-2 text-left text-sm hover:bg-slate-100/70 dark:hover:bg-white/10">
                     <Flag code="en" />
