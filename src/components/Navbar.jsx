@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 function Flag({ code, className = '' }) {
   // Simple emoji flags for reliability
@@ -31,6 +32,7 @@ function Brand() {
 export default function Navbar({ lang, setLang, t }) {
   const isRU = useMemo(() => lang === 'ru', [lang])
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
   return (
     <div className="pt-6 sm:pt-8 relative z-30">
@@ -41,9 +43,9 @@ export default function Navbar({ lang, setLang, t }) {
           </div>
 
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#how" className="text-sm text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">{t.nav.how}</a>
-            <a href="#benefits" className="text-sm text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">{t.nav.benefits}</a>
-            <a href="#signup" className="text-sm text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">{t.nav.signup}</a>
+            <Link to="/how" className={`text-sm transition-colors ${pathname === '/how' ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'}`}>{t.nav.how}</Link>
+            <a href="/#benefits" className="text-sm text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">{t.nav.benefits}</a>
+            <a href="/#signup" className="text-sm text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">{t.nav.signup}</a>
           </nav>
 
           <div className="relative">
