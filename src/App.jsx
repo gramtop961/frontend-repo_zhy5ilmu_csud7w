@@ -89,7 +89,7 @@ function App() {
     <div className="min-h-screen relative">
       <Navbar lang={lang} setLang={setLang} t={t} />
       <main>
-        <Hero t={t} />
+        <Hero t={t} lang={lang} />
         <HowItWorks t={t} />
         <Benefits t={t} />
         <Signup t={t} />
