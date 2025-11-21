@@ -1,5 +1,8 @@
 export default function HowItWorks({ t }) {
   const steps = t.how.steps
+  const videoId = "mO_1rmAdxJk"
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`
+
   return (
     <section id="how" className="relative py-16 sm:py-24 bg-gradient-to-b from-transparent to-slate-50 dark:to-slate-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,13 +17,35 @@ export default function HowItWorks({ t }) {
             </div>
           ))}
         </div>
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-          <a href="#" className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200/50 dark:border-indigo-900/50">
+
+        {/* Video preview embedded like in-app player */}
+        <div className="mt-10 w-full">
+          <div className="rounded-2xl overflow-hidden border border-slate-200/70 dark:border-white/10 bg-white/70 dark:bg-slate-900/60 shadow-sm">
+            <div className="relative w-full pb-[56.25%]">{/* 16:9 aspect ratio */}
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={embedUrl}
+                title="Oriion demo video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Optional helper button below (kept for CTA consistency) */}
+        <div className="mt-6">
+          <button
+            type="button"
+            onClick={() => {
+              const el = document.getElementById('how')
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }}
+            className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200/50 dark:border-indigo-900/50"
+          >
             {t.how.watch}
-          </a>
-          <p className="text-sm text-slate-600 dark:text-slate-400 break-all">
-            {t.how.video}: https://www.youtube.com/watch?v=mO_1rmAdxJk
-          </p>
+          </button>
         </div>
       </div>
     </section>
