@@ -19,6 +19,33 @@
 
   body {
     @apply antialiased;
+    background-color: #0b0b11;
+  }
+
+  /* Global layered background: gradient + image on top */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: radial-gradient(1200px 800px at 20% 10%, rgba(124, 58, 237, 0.25), transparent 60%),
+                radial-gradient(1000px 700px at 80% 20%, rgba(16, 185, 129, 0.20), transparent 60%),
+                radial-gradient(900px 900px at 50% 90%, rgba(56, 189, 248, 0.18), transparent 60%);
+    filter: saturate(110%);
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1; /* image sits above gradient but below content */
+    background-image: url('https://oriiion.ai/img/oriiion-chat-interface-square.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.18; /* subtle overlay */
+    mix-blend-mode: screen; /* makes colors glow over dark/neutral base */
+    pointer-events: none;
   }
 }
 

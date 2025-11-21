@@ -86,7 +86,7 @@ function App() {
   const t = useMemo(() => translations[lang], [lang])
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950">
+    <div className="min-h-screen relative">
       <Navbar lang={lang} setLang={setLang} t={t} />
       <main>
         <Hero t={t} />
